@@ -1,6 +1,9 @@
 {
     "compilerOptions": {
-        "types"  : ["jest"],
-        "noEmmit": true
-    }
+        "types"       : ["jest"],
+        "noEmit"      : true,
+        "pretty"      : true,
+        "skipLibCheck": true
+    },
+    "include": ["./src/**/*"]
 }
