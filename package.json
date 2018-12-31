@@ -1,7 +1,7 @@
 {
     "name"       : "react-boilerplate",
     "version"    : "1.0.0",
-    "description": "React Boilerplate with Typescript, Babel, Jest, EsLint, Prettier, Styled Components, React Testig Library",
+    "description": "React Boilerplate with Typescript, Babel, Jest, EsLint, Prettier, Styled Components, React Testig Library, Webpack, Webpack Dev Server",
     "main"       : "index.js",
     "scripts"    : {
         "format"   : "prettier \"**/*.(js|ts|tsx|jsx)\" --write",
@@ -9,7 +9,8 @@
         "typecheck": "tsc",
         "test"     : "jest --watch",
         "cover"    : "jest --coverage",
-        "start"    : "babel-node --extensions '.ts,.tsx' index.ts"
+        "start"    : "babel-node --extensions '.ts,.tsx' index.ts",
+        "build"    : "npx webpack"
     },
     "author"      : "",
     "license"     : "ISC",
@@ -30,6 +31,7 @@
         "@types/jest"             : "^23.3.10",
         "@types/react"            : "^16.7.17",
         "@types/react-dom"        : "^16.0.11",
+        "babel-loader"            : "^8.0.4",
         "eslint"                  : "^5.10.0",
         "eslint-plugin-typescript": "^0.14.0",
         "jest"                    : "^23.6.0",
@@ -39,9 +41,13 @@
         "prettier"                : "^1.15.3",
         "react-testing-library"   : "^5.4.2",
         "source-map-loader"       : "^0.2.4",
+        "ts-loader"               : "^5.3.2",
         "typescript"              : "^3.2.2",
         "typescript-babel-jest"   : "^1.0.5",
-        "typescript-eslint-parser": "^21.0.2"
+        "typescript-eslint-parser": "^21.0.2",
+        "webpack"                 : "^4.28.3",
+        "webpack-cli"             : "^3.1.2",
+        "webpack-dev-server"      : "^3.1.14"
     },
     "jest": {
         "setupFiles": [
