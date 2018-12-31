@@ -1,39 +1,23 @@
-export interface AppStateInterface {
-    counter: number;
-    subView: JSX.Element | null;
-}
+import React from "react";
+import { hot } from "react-hot-loader";
 
-class App extends React.Component<AppPropsInterface, AppStateInterface> {
-    state = {
-        counter: 0,
-        subView: null
-    };
-
-    private incrementCounter = (): void => {
-        this.setState({ counter: this.state.counter + 1 });
-    };
-
-    private addSubView = (): void => {
-        import("./SubView")
-            .then(module => {
-                const Component = module.default as React.SFC;
-                this.setState({
-                    subView: <Component counter={this.state.counter} />
-                });
-            })
-            .catch(error => console.error(error));
-    };
-
-    public render(): JSX.Element {
+class App extends React.Component {
+    render() {
         return (
             <div>
-                Counter: {this.state.counter}
+                Counter: {(this.state || {}).counter || 0}
                 <br />
-                <button onClick={this.incrementCounter}>add</button>
-                <br />
-                <button onClick={this.addSubView}>add sub view</button>
-                {this.state.subView}
+                <button
+                    onClick={() =>
+                        this.setState({
+                            counter: ((this.state || {}).counter || 0) + 1
+                        })
+                    }
+                >
+                    add
+                </button>
             </div>
         );
     }
 }
+export default hot(module)(App);
