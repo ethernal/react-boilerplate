@@ -28,7 +28,7 @@ function buildProductionConfig(env, dirname) {
         module: {
             rules: [
                 {
-                    test   : /\.(tsx?)$/i,
+                    test   : /\.(js|jsx|ts|tsx?)$/i,
                     include: dirname + "/src",
                     use    : {
                         loader : "babel-loader",

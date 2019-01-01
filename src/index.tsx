@@ -1,7 +1,6 @@
-const myName = "Fabien";
-const greetings = `Hello, I’m ${myName}`;
-console.log(greetings);
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 
-if (module.hot) {
-    module.hot.accept();
-}
+import { HelloComponent } from "./hello";
+
+ReactDOM.render(<HelloComponent />, document.getElementById("root"));
