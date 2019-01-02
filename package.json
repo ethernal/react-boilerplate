@@ -4,15 +4,15 @@
     "description": "React Boilerplate with Typescript, Babel, Jest, EsLint, Prettier, Styled Components, React Testig Library, Webpack, Webpack Dev Server",
     "main"       : "index.tsx",
     "scripts"    : {
-        "format"           : "prettier \"**/*.(js|ts|tsx|jsx)\" --write",
-        "lint"             : "eslint . --ext \".js,.ts,.tsx\"",
-        "typecheck"        : "tsc",
-        "test"             : "jest --watch",
-        "cover"            : "jest --coverage",
-        "start"            : "babel-node --extensions '.ts,.tsx' index.ts",
-        "build"            : "webpack --env.NODE_ENV=production",
-        "server-no-reaload": "webpack-dev-server --env.NODE_ENV=development",
-        "server"           : "nodemon --watch webpack.config.ts -x webpack-dev-server --  --env.NODE_ENV=development"
+        "format"          : "prettier \"**/*.(js|ts|tsx|jsx)\" --write",
+        "lint"            : "eslint . --ext \".js,.ts,.tsx\"",
+        "typecheck"       : "tsc",
+        "test"            : "jest --watch",
+        "cover"           : "jest --coverage",
+        "start"           : "babel-node --extensions '.ts,.tsx' index.ts",
+        "build"           : "webpack --env.NODE_ENV=production",
+        "server-no-reload": "webpack-dev-server --env.NODE_ENV=development",
+        "server"          : "nodemon --watch webpack.config.ts -x webpack-dev-server --  --env.NODE_ENV=development"
     },
     "author"      : "",
     "license"     : "ISC",
@@ -62,24 +62,6 @@
         "webpack-bundle-analyzer"                : "^3.0.3",
         "webpack-cli"                            : "^3.1.2",
         "webpack-dev-server"                     : "^3.1.14"
-    },
-    "jest": {
-        "setupFiles": [
-            "./jest.config.js"
-        ],
-        "moduleDirectories": [
-            "./node_modules",
-            "./src"
-        ],
-        "moduleFileExtensions": [
-            "ts",
-            "tsx",
-            "js",
-            "jsx"
-        ],
-        "transform": {
-            "^.+\\.(js|jsx|ts|tsx)$": "typescript-babel-jest"
-        }
     },
     "resolutions": {
         "babel-core": "^7.0.0-bridge.0"

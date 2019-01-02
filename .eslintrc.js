@@ -11,6 +11,6 @@ module.exports = {
         excludePlugins: ["bigInt"]
     },
     rules: {
-        "no-console": "error"
+        "no-console": "warn"
     }
 };

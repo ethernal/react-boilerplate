@@ -43,13 +43,13 @@ function buildDevelopementConfig(env, dirname) {
                                     {
                                         modules: false,
                                         debug  : true,
-                                        target : {
+                                        targets: {
                                             browsers: ["> 0.5%"]
                                         }
                                     }
                                 ],
                                 "@babel/preset-react",
-                                "@babel/typescript"
+                                "@babel/preset-typescript"
                             ],
                             plugins: [
                                 "babel-plugin-styled-components",
