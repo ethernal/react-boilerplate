@@ -3,8 +3,9 @@ module.exports = {
         [
             "@babel/preset-env",
             {
-                //debug  : true,
-                targets: {
+                debug      : true,
+                useBuiltIns: "usage",
+                targets    : {
                     node    : "current",
                     browsers: ["last 2 versions"]
                 }

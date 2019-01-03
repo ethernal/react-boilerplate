@@ -1,8 +1,4 @@
-//const env = process.env.NODE_ENV || 'development'
-
-//module.exports = require(`./webpack.config.${env}.js`)
-
-const path               = require("path");
+const path = require("path");
 const webpack            = require("webpack");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const CopyWebpackPlugin  = require("copy-webpack-plugin");
