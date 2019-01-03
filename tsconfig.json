@@ -1,7 +1,6 @@
 {
     "compilerOptions": {
         "types"                       : ["jest", "node"],
-        "noEmit"                      : true,
         "pretty"                      : true,
         "skipLibCheck"                : true,
         "noEmit"                      : true /* Most important thing: will not compile anything */,
@@ -17,8 +16,10 @@
         "noImplicitReturns"           : true /* Report error when not all code paths in function return a value. */,
         "noFallthroughCasesInSwitch"  : true /* Report errors for fallthrough cases in switch statement. */,
         "moduleResolution"            : "node" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
-        "module"                      : "esnext",                                                                                               //allows dynamic import
-        "baseUrl"                     : "./src"                                                                                                 /* Base directory to resolve non-absolute module names. */
+        "module"                      : "es2015",                                                                                               //allows dynamic import
+        "baseUrl"                     : "./src" /* Base directory to resolve non-absolute module names. */,
+        "allowJs"                     : true,
+        "sourceMap"                   : true
     },
 
     "include": ["./src/**/*"]
