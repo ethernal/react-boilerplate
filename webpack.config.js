@@ -1,39 +1,124 @@
-const path = require("path");
-const webpack            = require("webpack");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
-const CopyWebpackPlugin  = require("copy-webpack-plugin");
+const HtmlWebPackPlugin    = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const StyleLintPlugin      = require("stylelint-webpack-plugin");
+const Emotion              = require("babel-plugin-emotion");
 
-const webpack_rules   = [];
-const webpack_plugins = [];
+const isDevelopment = process.env.NODE_ENV !== "production";
 
-const webpackOption = {
-    resolve: {
-        extensions: [".js", ".json", ".ts", ".jsx", ".tsx"]
-    },
-
-    entry  : "./src/index.tsx",
-    devtool: "cheap-module-eval-source-map",
-    output : {
-        path    : path.resolve(__dirname, "dist"),
-        filename: "bundle.js"
+module.exports = {
+    mode  : isDevelopment ? "development": "production",
+    output: {
+        filename: isDevelopment ? "[name].js": "[name].[hash].js"
     },
     module: {
-        rules: webpack_rules
+        rules: [
+            {
+                test   : /\.jsx?$/,
+                loader : "babel-loader",
+                exclude: /node_modules/
+            },
+            {
+                test: /\.(gif|png|jpe?g|svg)$/i,
+                use : [
+                    "file-loader",
+                    {
+                        loader : "image-webpack-loader",
+                        options: {
+                            mozjpeg: {
+                                progressive: true,
+                                quality    : 65
+                            },
+                            optipng: {
+                                enabled: !isDevelopment
+                            },
+                            pngquant: {
+                                quality: "65-90",
+                                speed  : 4
+                            },
+                            gifsicle: {
+                                interlaced: false
+                            },
+                            webp: {
+                                quality: 75
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                test  : /\.module\.s(a|c)ss$/,
+                loader: [
+                    isDevelopment
+                        ? "style-loader"
+                        :  MiniCssExtractPlugin.loader,
+                    {
+                        loader : "css-loader",
+                        options: {
+                            modules       : true,
+                            localIdentName: "[name]__[local]___[hash:base64:5]",
+                            camelCase     : true,
+                            sourceMap     : isDevelopment
+                        }
+                    },
+                    {
+                        loader : "sass-loader",
+                        options: {
+                            sourceMap: isDevelopment
+                        }
+                    }
+                ]
+            },
+            {
+                test   : /\.s(a|c)ss$/,
+                exclude: /\.module.(s(a|c)ss)$/,
+                loader : [
+                    isDevelopment
+                        ? "style-loader"
+                        :  MiniCssExtractPlugin.loader,
+                    "css-loader",
+                    {
+                        loader : "sass-loader",
+                        options: {
+                            sourceMap: isDevelopment
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.html$/,
+                use : [
+                    {
+                        loader : "html-loader",
+                        options: { minimize: !isDevelopment }
+                    }
+                ]
+            }
+        ]
     },
-    plugins: webpack_plugins
+    resolve: {
+        extensions: [
+            ".js",
+            ".jsx",
+            ".ts",
+            ".tsx",
+            ".scss",
+            ".gif",
+            ".png",
+            ".jpg",
+            ".jpeg",
+            ".svg"
+        ]
+    },
+    plugins: [
+        new CleanWebpackPlugin(["dist"]),
+        new HtmlWebPackPlugin({
+            template: "./src/index.html",
+            filename: "./index.html"
+        }),
+        new MiniCssExtractPlugin({
+            filename     : isDevelopment ? "[name].css": "[name].[hash].css",
+            chunkFilename: isDevelopment ? "[id].css"  : "[id].[hash].css"
+        })
+    ]
 };
-let babelLoader = {
-    test   : /\.+(js|ts|tsx|jsx)$/,
-    exclude: /(node_modules|bower_components)/,
-    use    : {
-        loader: "babel-loader"
-    }
-};
-
-let copyIndexStaticFile = new CopyWebpackPlugin([
-    { from: "./src/index.html", to: "./" }
-]);
-
-webpack_rules.push(babelLoader);
-webpack_plugins.push(copyIndexStaticFile);
-module.exports = webpackOption;
