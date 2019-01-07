@@ -1,7 +1,8 @@
 module.exports = {
-    extends: "stylelint-config-standard",
-    rules  : {
-        indentation          : "tab",
-        "number-leading-zero": null
-    }
+  extends: ["stylelint-config-prettier"],
+  rules  : {
+    indentation          : 2,
+    "string-quotes"      : "single",
+    "number-leading-zero": null,
+  },
 };
