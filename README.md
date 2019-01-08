@@ -8,6 +8,10 @@ keywords: react, typescript, babel, webpack, jest, eslint, jest-eslint-runner, j
 
 This boilerplate tries to achive Typescript compatibility with React development while retaining all functionality of standard JS tools like ESlint, Babel and Webpack.
 
+# Installation
+
+Clone this repositiory and run `yarn install`. All dependencies are local to this environment.
+
 # why?
 
 I love good tools and love building them. I also wanted to learn React/JS/Testing properly so I decided to get all the best tools available for JS/React etc. and combine them into a coherent package. This proved to be more difficult and exciting than it looked like. I was inspired by Kent C. Dodds to use TypeScript for type checking only and have all other tools from pure JS ecosystem. It started with videos about Jest runners and then I "overengineered" the starter package.
@@ -43,8 +47,10 @@ Typescript used only for typechecking, React development with Jest and (WIP) Cyp
 # WIP
 
 - webpack - it can be optimized or improved.
+- React Testing Library.
 - Cypress.
-- GraphQL? (Apollo/Prisma?).
+- Sass in TS(X).
+- Git hooks?
 - suggestions?
 
 # TODO
@@ -53,6 +59,12 @@ Typescript used only for typechecking, React development with Jest and (WIP) Cyp
 - Example app using all of the above.
 - Add Documentation links for all used packages so configuration changes are easier.
 - Create documentation for the setup.
+
+# Future Plans
+
+- Material UI 4 (Start of Q2 2019)
+- React With Hooks (Start of Q2 2019)
+- GraphQL? (Apollo/Prisma?).
 
 PS. this kind of configuration is probably trivial for most experienced devs, but I have not found such project on the web so here it is. I consider this to be the baseline for any serious application. It aims to provide both great developer experience and quality assurance due to extensive linting and testing configured as well as automating all of the above.
 

@@ -1,9 +1,13 @@
+const isProd = String(process.env.NODE_ENV) === "production";
+const isTest = String(process.env.NODE_ENV) === "test";
+
 module.exports = {
   presets: [
     [
       "@babel/preset-env",
       {
-        debug      : true,
+        modules    : isTest ? "commonjs": "auto",
+        debug      : !isProd,
         useBuiltIns: "usage",
         targets    : {
           node    : "current",
@@ -20,7 +24,7 @@ module.exports = {
       {
         // sourceMap is on by default but source maps are dead code eliminated in production
         sourceMap          : true,
-        autoLabel          : process.env.NODE_ENV !== "production",
+        autoLabel          : !isProd,
         labelFormat        : "[local]",
         cssPropOptimization: true,
       },
