@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types"                       : ["jest", "node"],
+    "types"                       : ["jest", "node", "react", "react-dom"],
     "pretty"                      : true,
     "skipLibCheck"                : true,
     "noEmit"                      : true /* Most important thing: will not compile anything */,

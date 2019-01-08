@@ -4,6 +4,8 @@ date: 2019.01.03
 keywords: react, typescript, babel, webpack, jest, eslint, jest-eslint-runner, jest-runner-tsc
 ---
 
+**Not ready for production / Alpha version, use at your own risk.**
+
 # TL;DR
 
 This boilerplate tries to achive Typescript compatibility with React development while retaining all functionality of standard JS tools like ESlint, Babel and Webpack.

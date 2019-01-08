@@ -7,7 +7,7 @@ module.exports = {
       "@babel/preset-env",
       {
         modules    : isTest ? "commonjs": "auto",
-        debug      : !isProd,
+        debug      : false,
         useBuiltIns: "usage",
         targets    : {
           node    : "current",
