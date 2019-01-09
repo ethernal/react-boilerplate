@@ -7,6 +7,7 @@ const webpack              = require("webpack");
 const isDevelopment = process.env.NODE_ENV !== "production";
 
 module.exports = {
+  entry  : "./src/index.js",
   mode   : isDevelopment ? "development" : "production",
   devtool: "cheap-module-eval-source-map",
   output : {
@@ -15,7 +16,7 @@ module.exports = {
   devServer: {
     contentBase       : path.join(__dirname, "dist"),
     compress          : true,
-    port              : 8080,
+    port              : 9000,
     overlay           : true,
     hot               : true,
     historyApiFallback: true,
@@ -24,7 +25,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test   : /\.js|.jsx$/,
+        test   : /\.js|.jsx|.tsx|.ts$/,
         loader : "babel-loader",
         exclude: /node_modules/,
       },
