@@ -1,0 +1,35 @@
+# Javascript
+
+- https://babeljs.io/docs/en/learn
+- https://codeburst.io/best-courses-to-learn-javascript-in-2017-fc3a254638cc
+
+# Typescript
+
+- https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html
+- https://developerhandbook.com/typescript/typescript-beginners-guide/
+
+# React
+
+- https://medium.com/the-codelog/intro-to-react-js-a37696fd99af
+- https://medium.com/@dan_abramov/making-sense-of-react-hooks-fdbde8803889
+
+# React and CSS / CSS in JS
+
+- https://medium.com/@pioul/modular-css-with-react-61638ae9ea3e
+- https://hackernoon.com/all-you-need-to-know-about-css-in-js-984a72d48ebc
+
+# React and Redux
+
+- Read this first: https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367
+-
+- https://www.valentinog.com/blog/redux/
+
+# React and Typescript
+
+- https://spin.atomicobject.com/2017/10/31/react-typescript-basics/
+
+# Testing
+
+## Cypress
+
+- https://docs.cypress.io/guides/getting-started/writing-your-first-test.html#Add-a-test-file

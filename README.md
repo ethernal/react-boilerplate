@@ -40,19 +40,19 @@ Typescript used only for typechecking, React development with Jest and (WIP) Cyp
 - Webpack,
 - Web Dev Server.
 - SASS in webpack.
+- HMR.
+- React Testing Library.
 
 # What should work
 
-- HMR for React should work.
 - Emotion.
+- Sass in TS(X).
 
 # WIP
 
 - webpack - it can be optimized or improved.
-- React Testing Library.
 - Cypress.
-- Sass in TS(X).
-- Git hooks?
+- Git hooks examples?
 - suggestions?
 
 # TODO
@@ -65,7 +65,7 @@ Typescript used only for typechecking, React development with Jest and (WIP) Cyp
 # Future Plans
 
 - Material UI 4 (Start of Q2 2019)
-- React With Hooks (Start of Q2 2019)
+- Create example React application with hooks and testing best practices (Start of Q2 2019)
 - GraphQL? (Apollo/Prisma?).
 
 PS. this kind of configuration is probably trivial for most experienced devs, but I have not found such project on the web so here it is. I consider this to be the baseline for any serious application. It aims to provide both great developer experience and quality assurance due to extensive linting and testing configured as well as automating all of the above.
@@ -93,3 +93,10 @@ At some point in this journey I stumbled upon these articles and they did help c
 - https://basarat.gitbooks.io/typescript/docs/project/tsconfig.html
 - http://2ality.com/2017/02/babel-preset-env.html
 - All package owners and supporters.
+
+Post configuration links:
+
+- https://medium.freecodecamp.org/a-complete-react-boilerplate-tutorial-from-zero-to-hero-20023e086c4a
+- https://www.valentinog.com/blog/webpack-tutorial/
+- http://jsconfig.com/guide-setup-webpack4-development-production/
+-

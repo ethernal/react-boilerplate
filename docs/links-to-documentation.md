@@ -41,6 +41,7 @@ Webpack:
 Jest
 
 - https://github.com/exogen/jest-styled-components-stylelint
+- https://rjzaworski.com/2016/08/getting-started-with-redux-and-typescript
 
 Jump start JS:
 
