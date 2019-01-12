@@ -14,11 +14,11 @@ module.exports = {
     filename: isDevelopment ? "[name].js": "[name].[hash].js",
   },
   devServer: {
-    contentBase       : path.join(__dirname, "dist"),
-    compress          : true,
-    port              : 8080,
-    overlay           : true,
-    hot               : true,
+    contentBase: path.join(__dirname, "dist"),
+    compress   : true,
+    port       : 8080,
+    overlay    : true,
+    //hot               : true,
     historyApiFallback: true,
   },
 
