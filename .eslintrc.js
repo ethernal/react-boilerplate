@@ -2,6 +2,7 @@ module.exports = {
   parser: "pluggable-babel-eslint",
   env   : {
     es6: true,
+    
   },
   parserOptions: {
     ecmaVersion   : 2018,

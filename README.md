@@ -22,7 +22,9 @@ I love good tools and love building them. I also wanted to learn React/JS/Testin
 
 Typescript used only for typechecking, React development with Jest and (WIP) Cypress as testing environment. All transpiled by Babel 7 and packaged with Webpack 4. ESLint/Stylelint for static code linting. Prettier for code style.
 
-# What works
+# The Stack
+
+## What works
 
 - Typescript,
 - Jest,
@@ -43,30 +45,51 @@ Typescript used only for typechecking, React development with Jest and (WIP) Cyp
 - HMR.
 - React Testing Library.
 
-# What should work
+## What should work
 
 - Emotion.
 - Sass in TS(X).
 
-# WIP
+## WIP before tagging 1.0
 
 - webpack - it can be optimized or improved.
 - Cypress.
-- Git hooks examples?
-- suggestions?
 
-# TODO
+## TODO
 
-- Cleanup scripts in package.json
 - Example app using all of the above.
 - Add Documentation links for all used packages so configuration changes are easier.
 - Create documentation for the setup.
 
-# Future Plans
+## Future Plans
 
 - Material UI 4 (Start of Q2 2019)
 - Create example React application with hooks and testing best practices (Start of Q2 2019)
 - GraphQL? (Apollo/Prisma?).
+
+## Known Bugs
+
+Runnning Cypress in debug/log mode shows:
+
+```
+GET http://localhost:8080/__/main.js net::ERR_ABORTED
+Navigated to http://localhost:61036/__/
+VM47 cypress_runner.js:153927 Download the React DevTools for a better development experience: https://fb.me/react-devtools
+VM47 cypress_runner.js:114815 Download the React DevTools for a better development experience: https://fb.me/react-devtools
+VM47 cypress_runner.js:68763 Slow network is detected. Fallback font will be used while loading: http://localhost:61036/__cypress/runner/fonts/fontawesome-webfont.woff2?v=4.6.3
+VM47 cypress_runner.js:163613 console.clear() was prevented due to 'Preserve log'
+localhost/:13 GET http://localhost:8080/__/main.js net::ERR_ABORTED
+Navigated to http://localhost:8080/__/
+Navigated to http://localhost:61036/__/
+VM57 cypress_runner.js:153927 Download the React DevTools for a better development experience: https://fb.me/react-devtools
+VM57 cypress_runner.js:114815 Download the React DevTools for a better development experience: https://fb.me/react-devtools
+VM57 cypress_runner.js:68763 Slow network is detected. Fallback font will be used while loading: http://localhost:61036/__cypress/runner/fonts/fontawesome-webfont.woff2?v=4.6.3
+VM57 cypress_runner.js:163613 console.clear() was prevented due to 'Preserve log'
+```
+
+It seems to be looking for 'main.js'
+
+
 
 PS. this kind of configuration is probably trivial for most experienced devs, but I have not found such project on the web so here it is. I consider this to be the baseline for any serious application. It aims to provide both great developer experience and quality assurance due to extensive linting and testing configured as well as automating all of the above.
 
