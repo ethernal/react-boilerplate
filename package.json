@@ -18,7 +18,7 @@
     "build:prod" : "cross-env NODE_ENV=production webpack --config webpack.config.js",
     "server"     : "nodemon --watch webpack.config.js -x cross-env NODE_ENV=development webpack-dev-server",
     "server:prod": "cross-env NODE_ENV=production webpack-dev-server --config webpack.config.js",
-    "check:all"  : "npm run build:prod && npm run build && npm run test:once && npm run coverage && npm run style:check npm run type:check"
+    "validate"  : "npm run build:prod && npm run build && npm run test:once && npm run coverage && npm run style:check npm run type:check"
   },
   "author"      : "Sebastian Pieczyński",
   "license"     : "MIT",
