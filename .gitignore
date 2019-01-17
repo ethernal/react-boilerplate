@@ -3,3 +3,4 @@ dist
 *.log
 cypress/videos
 cypress/screenshots
+coverage

@@ -5,6 +5,7 @@ module.exports = {
   runner                : "jest-runner-stylelint",
   displayName           : "stylelint",
   moduleFileExtensions  : ["css", "scss"],
-  testPathIgnorePatterns: ["node_modules", "dist"],
-  testMatch             : ["**/*.css", "**/*.scss"],
+  testPathIgnorePatterns: ["node_modules", "dist", "coverage"],
+  testMatch             : ["./src/**/*.css", "./src/**/*.scss"],
+  collectCoverage       : false,
 };

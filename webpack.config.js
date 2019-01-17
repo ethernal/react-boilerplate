@@ -21,7 +21,6 @@ module.exports = {
     hot               : true,
     historyApiFallback: true,
   },
-
   module: {
     rules: [
       {
@@ -109,6 +108,7 @@ module.exports = {
       ".jsx",
       ".ts",
       ".tsx",
+      ".css",
       ".scss",
       ".gif",
       ".png",
@@ -116,6 +116,7 @@ module.exports = {
       ".jpeg",
       ".svg",
     ],
+    modules: ["node_modules", path.join(__dirname, "src"), "shared"],
   },
   plugins: [
     new CleanWebpackPlugin(["dist"]),
