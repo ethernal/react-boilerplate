@@ -5906,6 +5906,13 @@ is-callable@^1.1.4:
   resolved "https://registry.yarnpkg.com/is-callable/-/is-callable-1.1.4.tgz#1e1adf219e1eeb684d691f9d6a05ff0d30a24d75"
   integrity sha512-r5p9sxJjYnArLjObpjA4xu5EKI3CuKHkJXMhT7kwbpUyIFD1n5PMAsoPvWnvtZiNz7LjkYDRZhd7FlI0eMijEA==
 
+is-ci-cli@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/is-ci-cli/-/is-ci-cli-1.1.1.tgz#2dc924d192fe8d76074dcb96a2122a7d00d0ee83"
+  integrity sha512-c8xV1IkPvcdB9fAKo3QZ4SmdzsgPHOZ8Xz88T9CCSMrksKMn41R4jUxUP1UbFNPYiYoz8XvHt3RZ3ODKIPyLYQ==
+  dependencies:
+    is-ci "^1.0.10"
+
 is-ci@1.0.10:
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/is-ci/-/is-ci-1.0.10.tgz#f739336b2632365061a9d48270cd56ae3369318e"
@@ -6696,7 +6703,18 @@ jest-validate@^23.6.0:
     leven "^2.1.0"
     pretty-format "^23.6.0"
 
-jest-watcher@^23.4.0:
+jest-watch-typeahead@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/jest-watch-typeahead/-/jest-watch-typeahead-0.2.0.tgz#dd0cef120360ac75b93c0afbcdcf21a54b3e43c9"
+  integrity sha512-8Odp2BLxkJByDAFVQk0fmP9DgRxA7quKw1ihBCEC+q7j9LKwZGp2LsnfDOUxoHrIBIdRbWfBBHHtnxIjeArG8A==
+  dependencies:
+    chalk "^2.4.1"
+    jest-watcher "^23.1.0"
+    slash "^1.0.0"
+    string-length "^2.0.0"
+    strip-ansi "^4.0.0"
+
+jest-watcher@^23.1.0, jest-watcher@^23.4.0:
   version "23.4.0"
   resolved "https://registry.yarnpkg.com/jest-watcher/-/jest-watcher-23.4.0.tgz#d2e28ce74f8dad6c6afc922b92cabef6ed05c91c"
   integrity sha1-0uKM50+NrWxq/JIrksq+9u0FyRw=

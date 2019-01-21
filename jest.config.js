@@ -15,5 +15,9 @@ module.exports = {
     "./test/jest.scss.js",
     "./test/jest.tsc.js",
   ],
-  watchPlugins: ["jest-runner-eslint/watch-fix"],
+  watchPlugins: [
+    "jest-runner-eslint/watch-fix",
+    "jest-watch-typeahead/filename",
+    "jest-watch-typeahead/testname",
+  ],
 };
