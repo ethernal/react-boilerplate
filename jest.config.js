@@ -19,5 +19,6 @@ module.exports = {
     "jest-runner-eslint/watch-fix",
     "jest-watch-typeahead/filename",
     "jest-watch-typeahead/testname",
+    "jest-watch-select-projects",
   ],
 };
