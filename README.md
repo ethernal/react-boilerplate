@@ -14,6 +14,8 @@ This boilerplate tries to achive Typescript compatibility with React development
 
 Clone this repositiory and run `yarn install`. All dependencies are local to this environment.
 
+If you don't want to use precommit hooks for git, just clear the "precommit" command in package.json.
+
 # why?
 
 I love good tools and love building them. I also wanted to learn React/JS/Testing properly so I decided to get all the best tools available for JS/React etc. and combine them into a coherent package. This proved to be more difficult and exciting than it looked like. I was inspired by Kent C. Dodds to use TypeScript for type checking only and have all other tools from pure JS ecosystem. It started with videos about Jest runners and then I "overengineered" the starter package.
@@ -44,16 +46,19 @@ Typescript used only for typechecking, React development with Jest and (WIP) Cyp
 - SASS in webpack.
 - HMR.
 - React Testing Library.
+- Git Hooks (precommit test run).
 
 ## What should work
 
 - Emotion.
 - Sass in TS(X).
+- Git precommit hooks running tests.
 
 ## WIP before tagging 1.0
 
 - webpack - it can be optimized or improved.
 - Cypress.
+- Fix SCSS HMR.
 
 ## TODO
 
@@ -69,33 +74,26 @@ Typescript used only for typechecking, React development with Jest and (WIP) Cyp
 
 ## Known Bugs
 
-Runnning Cypress in debug/log mode shows:
+### Cypress and Chrome Enterprise
 
-```
-GET http://localhost:8080/__/main.js net::ERR_ABORTED
-Navigated to http://localhost:61036/__/
-VM47 cypress_runner.js:153927 Download the React DevTools for a better development experience: https://fb.me/react-devtools
-VM47 cypress_runner.js:114815 Download the React DevTools for a better development experience: https://fb.me/react-devtools
-VM47 cypress_runner.js:68763 Slow network is detected. Fallback font will be used while loading: http://localhost:61036/__cypress/runner/fonts/fontawesome-webfont.woff2?v=4.6.3
-VM47 cypress_runner.js:163613 console.clear() was prevented due to 'Preserve log'
-localhost/:13 GET http://localhost:8080/__/main.js net::ERR_ABORTED
-Navigated to http://localhost:8080/__/
-Navigated to http://localhost:61036/__/
-VM57 cypress_runner.js:153927 Download the React DevTools for a better development experience: https://fb.me/react-devtools
-VM57 cypress_runner.js:114815 Download the React DevTools for a better development experience: https://fb.me/react-devtools
-VM57 cypress_runner.js:68763 Slow network is detected. Fallback font will be used while loading: http://localhost:61036/__cypress/runner/fonts/fontawesome-webfont.woff2?v=4.6.3
-VM57 cypress_runner.js:163613 console.clear() was prevented due to 'Preserve log'
+Runnning Cypress with Chrome Enterprise version that has settings locked (at this moment I do not know which) can make code like this:
+
+```js
+describe("Smoke ping Homepage", function() {
+  it("Visits the Home Page", function() {
+    cy.visit("http://localhost:8080");
+    cy.get("h1");
+  });
+});
 ```
 
-It seems to be looking for 'main.js'
+Show only HTML page without any resources/js files loaded.
 
+At this moment a workaround is in place and Cypress is configured to use built-in Electron browser to run the tests.
 
+### SCSS and HMR
 
-PS. this kind of configuration is probably trivial for most experienced devs, but I have not found such project on the web so here it is. I consider this to be the baseline for any serious application. It aims to provide both great developer experience and quality assurance due to extensive linting and testing configured as well as automating all of the above.
-
-It took too long to make this work so I hope someone finds it useful. If you like it tell me about it or help me improve it.
-
-I will be most grateful for suggestions as I am learning all the tools while building this.
+Seems like some changes broke HMR in SCSS. I will test further at later date.
 
 # Thank you
 
