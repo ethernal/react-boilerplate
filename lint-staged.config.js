@@ -1,5 +1,8 @@
 module.exports = {
   linters: {
-    "**./*.(js|ts|jsx|tsx)": ["jest --findRelatedTests"],
+    "**./*.js" : ["jest --findRelatedTests"],
+    "**./*.jsx": ["jest --findRelatedTests"],
+    "**./*.ts" : ["jest --findRelatedTests"],
+    "**./*.tsx": ["jest --findRelatedTests"],
   },
 };

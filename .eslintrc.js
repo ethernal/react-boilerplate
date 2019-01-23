@@ -13,7 +13,7 @@ module.exports = {
     excludePlugins: ["bigInt"],
   },
   rules: {
-    "no-console"             : "off",
+    "no-console"             : "warn",
     "no-unexpected-multiline": "error",
     "comma-dangle"           : ["error", "always-multiline"],
   },

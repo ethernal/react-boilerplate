@@ -58,7 +58,8 @@ Typescript used only for typechecking, React development with Jest and (WIP) Cyp
 
 - webpack - it can be optimized or improved.
 - Cypress.
-- Fix SCSS HMR.
+- Fix SCSS module import - it's broken again.
+- cleanup.
 
 ## TODO
 

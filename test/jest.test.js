@@ -15,6 +15,7 @@ module.exports = {
   testPathIgnorePatterns: ["node_modules", "dist", "coverage"],
   // tells it that ts/tsx files are valid modules
   moduleFileExtensions: ["js", "json", "jsx", "node", "ts", "tsx"],
+
   // explicitly transform ts/tsx with babel
   transform: {
     "^.+\\.((t|j)sx?)$": "babel-jest",
@@ -28,7 +29,7 @@ module.exports = {
       lines     : 0,
       functions : 0,
     },
-    "./src/index.js": {
+    "./src/index.tsx": {
       statements: 0,
       branches  : 0,
       lines     : 0,

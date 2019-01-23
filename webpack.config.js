@@ -7,7 +7,7 @@ const webpack              = require("webpack");
 const isDevelopment = process.env.NODE_ENV !== "production";
 
 module.exports = {
-  entry  : "./src/index.js",
+  entry  : "./src/index.tsx",
   mode   : isDevelopment ? "development" : "production",
   devtool: "cheap-module-eval-source-map",
   output : {
@@ -18,7 +18,7 @@ module.exports = {
     compress          : true,
     port              : 8080,
     overlay           : true,
-    hot               : true,
+    hotOnly           : true,
     historyApiFallback: true,
   },
   module: {

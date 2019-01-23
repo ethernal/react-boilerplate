@@ -1,3 +1,8 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: rgb(190, 130, 130);
+
 body {
-  background-color: yellow;
+  font            : 100% $font-stack;
+  color           : $primary-color;
+  background-color: rgb(4, 0, 55);
 }

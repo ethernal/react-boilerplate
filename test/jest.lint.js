@@ -6,6 +6,6 @@ module.exports = {
   displayName           : "eslint",
   moduleFileExtensions  : ["js", "json", "jsx", "node", "ts", "tsx"],   // tells it that ts/tsx files are valid modules
   testPathIgnorePatterns: ["node_modules", "dist", "coverage"],
-  testMatch             : ["**/*.(js|ts|tsx)"],
+  testMatch             : ["**/*.(js|jsx|ts|tsx)"],
   collectCoverage       : false,
 };
