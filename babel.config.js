@@ -1,10 +1,6 @@
 const isProd = String(process.env.NODE_ENV) === "production";
 const isTest = String(process.env.NODE_ENV) === "test";
 
-const includeDynamicImportInTesting = () => {
-  return isTest ? "babel-plugin-dynamic-import-node": null;
-};
-
 module.exports = {
   presets: [
     [
@@ -36,7 +32,7 @@ module.exports = {
     "syntax-trailing-function-commas",
     "babel-plugin-styled-components",
     "react-hot-loader/babel",
-    //isTest ? "babel-plugin-dynamic-import-node": null,
+    "babel-plugin-dynamic-import-node",
   ],
   exclude: ["node_modules"],
 };
