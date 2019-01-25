@@ -23,5 +23,6 @@
     "sourceMap"                   : true
   },
 
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts", "dist", "coverage"]
 }

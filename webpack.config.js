@@ -7,7 +7,7 @@ const webpack              = require("webpack");
 const isDevelopment = process.env.NODE_ENV !== "production";
 
 module.exports = {
-  entry  : "./src/index.jsx",
+  entry  : "./src/index.tsx",
   mode   : isDevelopment ? "development" : "production",
   devtool: "cheap-module-eval-source-map",
   output : {
@@ -27,9 +27,6 @@ module.exports = {
         test   : /\.js|.jsx|.tsx|.ts$/,
         loader : "babel-loader",
         exclude: /node_modules/,
-        options: {
-          rootMode: "upward",
-        },
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
@@ -111,16 +108,20 @@ module.exports = {
       ".jsx",
       ".ts",
       ".tsx",
-      // ".css",
-      // ".scss",
-      // ".gif",
-      // ".png",
-      // ".jpg",
-      // ".jpeg",
-      // ".svg",
+      ".css",
+      ".scss",
+      ".gif",
+      ".png",
+      ".jpg",
+      ".jpeg",
+      ".svg",
     ],
     modules: ["node_modules", path.join(__dirname, "src"), "shared"],
   },
+  // externals: {
+  //   react      : "React",
+  //   "react-dom": "ReactDOM",
+  // },
   plugins: [
     new CleanWebpackPlugin(["dist"]),
     new HtmlWebPackPlugin({
