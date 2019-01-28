@@ -1,8 +1,9 @@
 const path = require("path");
-const CleanWebpackPlugin   = require("clean-webpack-plugin");
-const HtmlWebPackPlugin    = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const webpack              = require("webpack");
+const CleanWebpackPlugin       = require("clean-webpack-plugin");
+const HtmlWebPackPlugin        = require("html-webpack-plugin");
+const MiniCssExtractPlugin     = require("mini-css-extract-plugin");
+const webpack                  = require("webpack");
+var   CaseSensitivePathsPlugin = require("case-sensitive-paths-webpack-plugin");
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
@@ -70,9 +71,19 @@ module.exports = {
             },
           },
           {
+            loader : "typings-for-css-modules-loader",
+            options: {
+              modules    : true,
+              namedExport: true,
+              camelCase  : true,
+            },
+          },
+          {
             loader : "sass-loader",
             options: {
               sourceMap: isDevelopment,
+              camelCase: true,
+              modules  : true,
             },
           },
         ],
@@ -103,20 +114,8 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [
-      ".js",
-      ".jsx",
-      ".ts",
-      ".tsx",
-      ".css",
-      ".scss",
-      ".gif",
-      ".png",
-      ".jpg",
-      ".jpeg",
-      ".svg",
-    ],
-    modules: ["node_modules", path.join(__dirname, "src"), "shared"],
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
+    modules   : ["node_modules", path.join(__dirname, "src"), "shared"],
   },
   // externals: {
   //   react      : "React",
@@ -124,6 +123,7 @@ module.exports = {
   // },
   plugins: [
     new CleanWebpackPlugin(["dist"]),
+    new CaseSensitivePathsPlugin(),
     new HtmlWebPackPlugin({
       template: "./src/index.html",
       filename: "./index.html",
