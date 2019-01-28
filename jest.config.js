@@ -5,7 +5,7 @@ module.exports = {
   projects: [
     "./test/jest.test.js",
     "./test/jest.lint.js",
-    "./test/jest.scss.js",
+    "./test/jest.style.js",
     "./test/jest.tsc.js",
   ],
   watchPlugins: [

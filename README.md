@@ -12,7 +12,7 @@ This boilerplate tries to achieve Typescript compatibility with React developmen
 
 # Installation
 
-Clone this repository and run `yarn install`. All dependencies are local to this environment.
+Clone this repository and run `yarn install`. All dependencies are local to this environment except for Typescript that you must install globally.
 
 If you don't want to use pre-commit hooks for git, just clear the "precommit" command in package.json.
 
@@ -28,6 +28,7 @@ Typescript used only for type checking, React development with Jest and Cypress 
 
 ## What works
 
+- Typescript,
 - Jest,
 - Jest runners:
   - ESLint,
@@ -48,7 +49,6 @@ Typescript used only for type checking, React development with Jest and Cypress 
 
 ## What should work
 
-- Typescript,
 - Emotion.
 
 ## Must be done before tagging 1.0
@@ -71,6 +71,10 @@ Typescript used only for type checking, React development with Jest and Cypress 
 
 ## Known Bugs
 
+### Loading CSS files in Typescript
+
+Loading SCSS works, but if you try loading CSS files the build will break. This is webpack configuration issue I am certain, but at the moment I do not have the capacity or need to deal with this. I will appreciate help if it is offered.
+
 ### Cypress and Chrome Enterprise
 
 Runnning Cypress with Chrome Enterprise version that has settings locked (at this moment I do not know which) can make code like this:
@@ -87,10 +91,6 @@ describe("Smoke ping Homepage", function() {
 Show only HTML page without any resources/js files loaded.
 
 At this moment a workaround is in place and Cypress is configured to use built-in Electron browser to run the tests.
-
-### SCSS and HMR
-
-Seems like some changes broke HMR in SCSS. I will test further at later date.
 
 # Thank you
 

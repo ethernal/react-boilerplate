@@ -1,9 +1,9 @@
-$font-stack: Helvetica, sans-serif;
-//$primary-color: rgb(209, 98, 8);
-$primary-color: rgb(190, 130, 130);
-
 body {
-  font            : 100% $font-stack;
-  color           : $primary-color;
-  background-color: rgb(4, 0, 55);
+  font      : 100% Helvetica, sans-serif;
+  color     : rgb(209, 98, 8);
+  background: rgb(4, 0, 55);
+}
+
+.red {
+  color: red;
 }
