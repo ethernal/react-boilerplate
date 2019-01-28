@@ -9,10 +9,6 @@ module.exports = {
         modules    : isTest ? "commonjs": "auto",
         debug      : false,
         useBuiltIns: "usage",
-        targets    : {
-          node    : "current",
-          browsers: ["last 2 versions"],
-        },
       },
     ],
     "@babel/preset-react",
@@ -30,7 +26,6 @@ module.exports = {
       },
     ],
     "syntax-trailing-function-commas",
-    "babel-plugin-styled-components",
     "react-hot-loader/babel",
     "babel-plugin-dynamic-import-node",
   ],
