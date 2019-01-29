@@ -14,7 +14,7 @@ This boilerplate tries to achieve Typescript compatibility with React developmen
 
 Clone this repository and run `yarn install`. All dependencies are local to this environment except for Typescript that you must install globally.
 
-If you don't want to use pre-commit hooks for git, just clear the "precommit" command in package.json.
+If you don't want to use pre-commit hooks for git, just clear the "pre-commit" command in package.json.
 
 # why?
 
