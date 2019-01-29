@@ -58,7 +58,7 @@ module.exports = {
         ],
       },
       {
-        test  : /\.module\.s(a|c)ss$/,
+        test  : /\.module\.(sa|sc|c)ss{1}$/,
         loader: [
           isDevelopment ? "style-loader": MiniCssExtractPlugin.loader,
           {
@@ -68,14 +68,6 @@ module.exports = {
               localIdentName: "[name]__[local]___[hash:base64:5]",
               camelCase     : true,
               sourceMap     : isDevelopment,
-            },
-          },
-          {
-            loader : "typings-for-css-modules-loader",
-            options: {
-              modules    : true,
-              namedExport: true,
-              camelCase  : true,
             },
           },
           {
@@ -89,7 +81,7 @@ module.exports = {
         ],
       },
       {
-        test   : /\.s(a|c)ss$/,
+        test   : /\.(sa|sc|c){1}ss$/,
         exclude: /\.module.(s(a|c)ss)$/,
         loader : [
           isDevelopment ? "style-loader": MiniCssExtractPlugin.loader,
@@ -98,6 +90,34 @@ module.exports = {
             loader : "sass-loader",
             options: {
               sourceMap: isDevelopment,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use : [
+          {
+            loader : "url-loader",
+            options: {
+              limit: 8192,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use : [
+          {
+            loader : "file-loader",
+            options: {
+              name(file) {
+                if (process.env.NODE_ENV === "development") {
+                  return "[path][name].[ext]";
+                } else {
+                  return "[hash].[ext]";
+                }
+              },
             },
           },
         ],

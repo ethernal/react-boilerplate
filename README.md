@@ -97,6 +97,7 @@ At this moment a workaround is in place and Cypress is configured to use built-i
 At some point in this journey I stumbled upon these articles and they did help clarify one thing or another or were source of inspiration:
 
 - Kent C. Dodds - YouTube channel and testingjavascript.com
+- https://wanago.io/2018/07/16/webpack-4-course-part-two-webpack-4-course-part-two-loaders/
 - https://blog.wax-o.com/2018/05/webpack-loaders-babel-sourcemaps-react-hot-module-reload-typescript-modules-code-splitting-and-lazy-loading-full-tutorial-to-transpile-and-bundle-your-code/
 - https://developerhandbook.com/webpack/webpack-4-from-absolute-scratch/
 - https://blogs.msdn.microsoft.com/typescript/2018/08/27/typescript-and-babel-7/
