@@ -15,7 +15,9 @@ module.exports = {
     filename: isDevelopment ? "[name].js": "[name].[hash].js",
   },
   devServer: {
-    contentBase       : path.join(__dirname, "dist"),
+    contentBase       : path.join(__dirname, "src"),
+    watchContentbase  : true,
+    publicPath        : "/dist/",
     compress          : true,
     port              : 8080,
     overlay           : true,

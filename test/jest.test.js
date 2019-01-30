@@ -1,6 +1,8 @@
 const path = require("path");
+const { defaults } = require("jest-config");
 
 module.exports = {
+  verbose          : true,
   displayName      : "test",
   rootDir          : path.join(__dirname, ".."),
   moduleDirectories: [
@@ -13,7 +15,6 @@ module.exports = {
     "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": require.resolve(
       "./empty-mock.js",
     ),
-    //"\\.(sc|sa|c)ss$": require.resolve("./empty-mock.js"),
     "\\.(sc|sa|c)ss$": "identity-obj-proxy",
   },
   setupTestFrameworkScriptFile: require.resolve("./setupTest.js"),
@@ -21,11 +22,20 @@ module.exports = {
   testMatch             : ["**/__tests__/**/*.+(js|jsx|ts|tsx)"],
   testPathIgnorePatterns: ["node_modules", "dist", "coverage"],
   // tells it that ts/tsx files are valid modules
-  moduleFileExtensions: ["js", "jsx", "ts", "tsx", "node", "json"],
+  moduleFileExtensions: [
+    ...defaults.moduleFileExtensions,
+    "js",
+    "jsx",
+    "ts",
+    "tsx",
+    "node",
+    "json",
+  ],
 
   // explicitly transform ts/tsx with babel
   transform: {
-    "^.+\\.((t|j)sx?)$": "babel-jest",
+    //"^.+.(ts|tsx)$": "ts-jest",
+    "^.+\\.(j|t)sx?$": "babel-jest",
   },
   collectCoverage    : true,
   collectCoverageFrom: ["./**/src/**/*.+{js|ts|jsx|tsx}"],

@@ -8,9 +8,11 @@ keywords: react, typescript, babel, webpack, jest, eslint, jest-eslint-runner, j
 
 **Not ready for production / Alpha version, use at your own risk. / There be bugs here.**
 
-This boilerplate tries to achieve Typescript compatibility with React development while retaining all functionality of standard JS tools like ESlint, Babel and Webpack.
+This setup tries to achieve Typescript compatibility with React development while retaining all functionality of standard JS tools like ESlint, Babel and Webpack - no use of ts-lint, ts-loaders or ts-jest (although that one might be beneficial to use).
 
-# Installation
+**PRs are very welcome.**
+
+# installation
 
 Clone this repository and run `yarn install`. All dependencies are local to this environment except for Typescript that you must install globally.
 
@@ -24,9 +26,9 @@ I love good tools and love building them. I also wanted to learn React/JS/Testin
 
 Typescript used only for type checking, React development with Jest and Cypress as testing environment. All transpiled by Babel 7 and packaged with Webpack 4. ESLint/Stylelint for static code linting. Prettier for code style and some quality of life packages.
 
-# The Stack
+# the stack
 
-## What works
+## what works
 
 - Typescript,
 - Jest,
@@ -46,30 +48,40 @@ Typescript used only for type checking, React development with Jest and Cypress 
 - HMR.
 - React Testing Library.
 - SCSS (and other non-js files) module import in tests.
+- Git precommit hooks running tests.
 
-## What should work
+## what is not tested yet
 
 - Emotion.
 
 ## Must be done before tagging 1.0
 
-- webpack - it can be optimized or improved.
-- Git precommit hooks running tests - regex issue.
-- Refactor Jest configration.
+- Cleanup regexp rules for consistency.
+- Add comments to options so it is clear why they must be setup as they are.
+- Refactor Jest configuration (move common settings to jest.common.conf.js and reuse it).
+- Create documentation for the setup.
 
 ## TODO
 
-- Example app using all of the above.
 - Add Documentation links for all used packages so configuration changes are easier.
-- Create documentation for the setup.
 
 ## Future Plans
 
+- webpack - it can be optimized or improved.
+- Example app using all of the above.
 - Material UI 4 (Start of Q2 2019)
 - Create example React application with hooks and testing best practices (Start of Q2 2019)
 - GraphQL? (Apollo/Prisma?).
 
 ## Known Bugs
+
+### Tests fail with `TypeError: Cannot read property 'some' of undefined`
+
+The error when running tests that says:
+
+`TypeError: Cannot read property 'some' of undefined` when tunning a `test` project and that points to babel `at rewriteModuleStatementsAndPrepareHeader (node_modules/@babel/helper-module-transforms/lib/index.js:115:44)` happens only when using `--runInBand` with `--no-cache` combination.
+
+If your tests are failing please remove either of these flags. Your tests will pass. I assume this is a bug in Jest.
 
 ### Loading CSS files in Typescript
 
@@ -99,6 +111,8 @@ At some point in this journey I stumbled upon these articles and they did help c
 - Kent C. Dodds - YouTube channel and testingjavascript.com
 - https://wanago.io/2018/07/16/webpack-4-course-part-two-webpack-4-course-part-two-loaders/
 - https://blog.wax-o.com/2018/05/webpack-loaders-babel-sourcemaps-react-hot-module-reload-typescript-modules-code-splitting-and-lazy-loading-full-tutorial-to-transpile-and-bundle-your-code/
+- http://blog.tomduncalf.com/posts/setting-up-typescript-and-react/#importing-modules-without-type-declarations
+- https://www.typescriptlang.org/docs/handbook/module-resolution.html
 - https://developerhandbook.com/webpack/webpack-4-from-absolute-scratch/
 - https://blogs.msdn.microsoft.com/typescript/2018/08/27/typescript-and-babel-7/
 - https://www.thebasement.be/working-with-babel-7-and-webpack/
@@ -112,6 +126,7 @@ At some point in this journey I stumbled upon these articles and they did help c
 - https://basarat.gitbooks.io/typescript/docs/project/tsconfig.html
 - http://2ality.com/2017/02/babel-preset-env.html
 - All package owners and supporters.
+- http://www.pro-react.com/materials/appendixA/
 
 Post configuration links:
 
