@@ -17,7 +17,7 @@ module.exports = {
     ),
     "\\.(sc|sa|c)ss$": "identity-obj-proxy",
   },
-  setupTestFrameworkScriptFile: require.resolve("./setupTest.js"),
+  setupFilesAfterEnv: [require.resolve("./setupTest.js")],
   // look for ts files
   testMatch             : ["**/__tests__/**/*.+(js|jsx|ts|tsx)"],
   testPathIgnorePatterns: ["node_modules", "dist", "coverage"],
@@ -37,9 +37,15 @@ module.exports = {
     //"^.+.(ts|tsx)$": "ts-jest",
     "^.+\\.(j|t)sx?$": "babel-jest",
   },
-  collectCoverage    : true,
-  collectCoverageFrom: ["./**/src/**/*.+{js|ts|jsx|tsx}"],
-  coverageThreshold  : {
+  collectCoverage           : true,
+  coveragePathIgnorePatterns: ["<rootDir>/src/assets", "node_modules"],
+  collectCoverageFrom       : [
+    "<rootDir>/src/**/*.ts",
+    "<rootDir>/src/**/*.tsx",
+    "<rootDir>/src/**/*.js",
+    "<rootDir>/src/**/*.jsx",
+  ],
+  coverageThreshold: {
     global: {
       statements: 0,
       branches  : 0,
