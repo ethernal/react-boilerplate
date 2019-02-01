@@ -2,9 +2,9 @@ const path = require("path");
 const { defaults } = require("jest-config");
 
 module.exports = {
+  ...require("./jest.autoconfig"),
   verbose          : true,
   displayName      : "test",
-  rootDir          : path.join(__dirname, ".."),
   moduleDirectories: [
     "node_modules",
     path.join(__dirname, "src"),
@@ -19,8 +19,7 @@ module.exports = {
   },
   setupFilesAfterEnv: [require.resolve("./setupTest.js")],
   // look for ts files
-  testMatch             : ["**/__tests__/**/*.+(js|jsx|ts|tsx)"],
-  testPathIgnorePatterns: ["node_modules", "dist", "coverage"],
+  testMatch: ["**/__tests__/**/*.+(js|jsx|ts|tsx)"],
   // tells it that ts/tsx files are valid modules
   moduleFileExtensions: [
     ...defaults.moduleFileExtensions,
