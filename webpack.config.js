@@ -14,6 +14,30 @@ module.exports = {
   output : {
     filename: isDevelopment ? "[name].js": "[name].[hash].js",
   },
+  optimization: {
+    splitChunks: {
+      chunks     : "all",
+      cacheGroups: {
+        styles: {
+          name              : "styles",
+          test              : /\.s?css$/,
+          chunks            : "all",
+          minChunks         : 1,
+          reuseExistingChunk: true,
+          enforce           : true,
+        },
+        vendors: {
+          test    : /[\\/]node_modules[\\/]/,
+          priority: -10,
+        },
+        default: {
+          minChunks         : 2,
+          priority          : -20,
+          reuseExistingChunk: true,
+        },
+      },
+    },
+  },
   devServer: {
     contentBase       : path.join(__dirname, "src"),
     watchContentbase  : true,
@@ -70,6 +94,14 @@ module.exports = {
               localIdentName: "[name]__[local]___[hash:base64:5]",
               camelCase     : true,
               sourceMap     : isDevelopment,
+              importLoaders : 1,
+            },
+          },
+          {
+            loader : "postcss-loader",
+            options: {
+              ident  : "postcss",
+              plugins: () => [postcssPresetEnv(/* pluginOptions */)],
             },
           },
           {

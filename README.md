@@ -129,6 +129,7 @@ At some point in this journey I stumbled upon these articles and they did help c
 - http://2ality.com/2017/02/babel-preset-env.html
 - All package owners and supporters.
 - http://www.pro-react.com/materials/appendixA/
+- https://wanago.io/2018/06/04/code-splitting-with-splitchunksplugin-in-webpack-4/
 
 Post configuration links:
 
