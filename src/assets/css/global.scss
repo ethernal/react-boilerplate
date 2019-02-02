@@ -7,3 +7,7 @@ body {
 .red {
   color: red;
 }
+
+.green {
+  color: green($color: #00ff00);
+}

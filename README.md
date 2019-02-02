@@ -6,11 +6,13 @@ keywords: react, typescript, babel, webpack, jest, eslint, jest-eslint-runner, j
 
 # :seedling: TL;DR
 
-**Not ready for production / Alpha version, use at your own risk. / There be bugs here.**
+**Not ready for production / Alpha version, use at your own risk. / There might be bugs here.**
 
 This setup tries to achieve Typescript compatibility with React development while retaining all functionality of standard JS tools like ESlint, Babel and Webpack - no use of ts-lint, ts-loaders or ts-jest (although that one might be beneficial to use).
 
 It is basically Create React App clone (not all features are implemented yet) with configuration support.
+
+End to end tests in dev mode are monitored and static server is rebooted every time files in .\src are changed. This does not with webpack dev server so serve is used so nodemon reloads every time to make end-to-end testing easier and faster.
 
 **PRs are very welcome.**
 
@@ -63,11 +65,14 @@ Typescript used only for type checking, React development with Jest and Cypress 
 - Refactor Jest configuration (move common settings to jest.common.conf.js and reuse it).
 - Create documentation for the setup.
 - Webpack - uglify.js for production.
-- Upgrade to Jest 24 due to https://github.com/facebook/jest/issues/7762
+- Cleanup packages:
+  - concurently vs npm-run-all
+  - nodemon vs watch
 
 ## :money_with_wings: TODO
 
 - Add Documentation links for all used packages so configuration changes are easier.
+- See if it makes sense to run e2e dev server with webpack dev server (it hangs currently) instead of current workaround.
 
 ## :books: Future Plans
 
@@ -87,7 +92,7 @@ The error when running tests that says:
 
 `TypeError: Cannot read property 'some' of undefined` when tunning a `test` project and that points to babel `at rewriteModuleStatementsAndPrepareHeader (node_modules/@babel/helper-module-transforms/lib/index.js:115:44)` happens only when using `--runInBand` with `--no-cache` combination.
 
-If your tests are failing please remove either of these flags. Your tests will pass. I assume this is a bug in Jest.
+If your tests are failing please remove either of these flags. Your tests will pass. This was a bug in Jest < 24. See: https://github.com/facebook/jest/issues/7762
 
 ### Cypress and Chrome Enterprise
 

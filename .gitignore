@@ -6,3 +6,4 @@ cypress/screenshots
 coverage
 .vscode
 **/css/*.d.ts
+.docz

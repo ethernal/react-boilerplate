@@ -14,34 +14,10 @@ module.exports = {
   output : {
     filename: isDevelopment ? "[name].js": "[name].[hash].js",
   },
-  optimization: {
-    splitChunks: {
-      chunks     : "all",
-      cacheGroups: {
-        styles: {
-          name              : "styles",
-          test              : /\.s?css$/,
-          chunks            : "all",
-          minChunks         : 1,
-          reuseExistingChunk: true,
-          enforce           : true,
-        },
-        vendors: {
-          test    : /[\\/]node_modules[\\/]/,
-          priority: -10,
-        },
-        default: {
-          minChunks         : 2,
-          priority          : -20,
-          reuseExistingChunk: true,
-        },
-      },
-    },
-  },
+
   devServer: {
-    contentBase       : path.join(__dirname, "src"),
-    watchContentbase  : true,
-    publicPath        : "/dist/",
+    contentBase: path.join(__dirname, "dist"),
+    //watchContentBase: true,
     compress          : true,
     port              : 8080,
     overlay           : true,
@@ -175,6 +151,30 @@ module.exports = {
   //   react      : "React",
   //   "react-dom": "ReactDOM",
   // },
+  optimization: {
+    splitChunks: {
+      chunks     : "all",
+      cacheGroups: {
+        styles: {
+          name              : "styles",
+          test              : /\.s?css$/,
+          chunks            : "all",
+          minChunks         : 1,
+          reuseExistingChunk: true,
+          enforce           : true,
+        },
+        vendors: {
+          test    : /[\\/]node_modules[\\/]/,
+          priority: -10,
+        },
+        default: {
+          minChunks         : 2,
+          priority          : -20,
+          reuseExistingChunk: true,
+        },
+      },
+    },
+  },
   plugins: [
     new CleanWebpackPlugin(["dist"]),
     new CaseSensitivePathsPlugin(),
