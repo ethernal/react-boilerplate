@@ -1,5 +1,3 @@
-//import { myCoolPlugin } from "docz-plugin-mycoolplugin";
-
 export default {
   title      : "React Boilerplate with Typescript and ES tooling",
   description: 
@@ -12,8 +10,16 @@ export default {
   },
   src       : "./docs",
   dest      : "./dist/docs",
+  base      : "/docs/",
   typescript: true,
-  mdPlugins : [
+  //mdPlugins  : [],
+  //hastPlugins: [],
+  //plugins: [myCoolPlugin()],
+};
+
+/*
+mdPlugins: 
+
     // TODO: configure the plugins
     // "remark-abbr",
     //"remark-autolink-headings",
@@ -23,9 +29,8 @@ export default {
     // "remark-gemoji",
     // "remark-github",
     // "remark-graphviz",
-  ],
-  hastPlugins: [
+
+hastPlugins: 
     // "rehype-prism"
-  ],
-  //plugins: [myCoolPlugin()],
-};
+
+*/
