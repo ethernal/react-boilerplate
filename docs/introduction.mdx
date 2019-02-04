@@ -1,0 +1,93 @@
+---
+route: /about
+menu: Introduction
+name: About this project
+
+author: Sebastian Pieczyński
+date: 2019-02-04
+keywords: documentation, boilderplate, react
+---
+
+# Overview
+
+This package is an opinionated set of libraries from JS ecosystem that tries to achieve Typescript compatibility with React development while retaining all functionality of standard JS tools like ESlint, Babel and Webpack without relying on TypeScript specific tooling.
+
+It works... mostly... I think...
+
+All configuration files are located in main directory of this package. Please refer to that location whenever a configuration file is mentioned.
+
+This package integrates:
+
+## Libraries
+
+- React (UI).
+- Emotion (CSS-in-JS).
+- MobX (State management).
+
+### Future plans
+
+- MaterialUI.
+
+## Static Type Checking Tools
+
+**TypeScript**
+: used only for typechecking, source files are transpiled with Babel and not compiled by tsc.
+
+**Prettier**
+: keeps consistent style for source code formating.
+
+**Eslint**
+: finds bugs or inconsistencies according to rules setup.
+
+**Stylelint**
+: veryfies that styles (CSS/SCSS files not CSS-in-JS) are written according to the rules specified in `stylelint.config.js`.
+
+## Testing
+
+Tests are run on each commit. This can be setup with `pre-commit` script in `package.json` and `lint-staged.js` configuration file. All tests are run using Jest (unit) and Cypress (end to end).
+
+### Git precommit hook
+
+Commiting with Git `git commit -m "Example Message"` will invoke the git hook setup with `husky` (npm library). The hook will run the `pre-commit` script from `package.json`. The script in `pre-commit` contains `lint-staged` command that is another dependency of the project to run tests only for `staged` files. This configuration alloes to define what will be run in case of any changes to selected files or files mathing a glob. Currently `lint-staged` is running tests for all `.js`, `.jsx`, `.ts` and `.tsx` files with Jest and `--findRelatedTests`. The `--findRelatedTests` allows Jest to find other files affected by the changes to that one file and run all tests related to the change. This ensures that changes are truly non destructive and as a developer you can be confident that passing tests means working production build.
+
+Any error in tests will disallow commiting code to the repository and stop from shipping bad code.
+Styles (SCSS/CSS) and other non-js files are mocked in tests.
+
+### Unit Tests - Jest
+
+Tests run automatically by Jest:
+
+- Unit tests.
+- ESLint.
+- StyleLint (css, scss) with Prettier compatibility.
+- Type Checking via TSC.
+
+All tests are run from `__tests__` directory.
+
+### End to End Tests - Cypress
+
+For end to end tests Cypress is used. Cypress tests are not integrated into the linting/pre-commit.
+
+All end-to-end tests are run from `cypress/e2e` directory.
+
+Running Cypress tests and debugging them should be easier as it uses `nodemon` to monitor the changes to the source files and restarts the build process along with the server that is serving files during `e2e:test:dev` command. This makes sure you do not need to restart Cypress when fixing end to end tests or source files. Tests directory is [watched](https://docs.cypress.io/guides/core-concepts/writing-and-organizing-tests.html#Configuration) by default by Cypress when running with `cy:open` command.
+
+### Additinal testing libraries
+
+**React Testing Library**
+: used to test react components without implementation details.
+
+## Building && Bundling
+
+Babel
+: transpiles (rewrites) all the code written to one that works with selected browsers defined in `.browserlistrc` file. Uses `babel-polyfill` plugin with usage based injection of polyfill code for browsers.
+
+**Webpack**
+: packages all the JS files "generated" by Babel and creates a single (or many) file that wil be loaded and is optimized for production. Includes the development server with Hot Module Reloading that displays instant
+
+## Other Functionality
+
+SCSS is supported (see Babel section).
+
+- Web Dev Server.
+- Hot Module Replacement.

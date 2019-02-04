@@ -10,7 +10,7 @@ keywords: react, typescript, babel, webpack, jest, eslint, jest-eslint-runner, j
 
 This setup tries to achieve Typescript compatibility with React development while retaining all functionality of standard JS tools like ESlint, Babel and Webpack - no use of ts-lint, ts-loaders or ts-jest (although that one might be beneficial to use).
 
-It is basically Create React App clone (not all features are implemented yet) with configuration support.
+It is basically like Create React App after ejecting but with configuration I as a beginner could understand. Also I wanted to see how hard would a proper setup be... it is difficult.
 
 End to end tests in dev mode are monitored and static server is rebooted every time files in .\src are changed. This does not with webpack dev server so serve is used so nodemon reloads every time to make end-to-end testing easier and faster.
 
