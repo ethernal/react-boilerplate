@@ -1,3 +1,5 @@
+import { css } from "docz-plugin-css";
+
 export default {
   title      : "React Boilerplate with Typescript and ES tooling",
   description: 
@@ -8,29 +10,24 @@ export default {
       primary: "tomato",
     },
   },
-  src       : "./docs",
-  dest      : "./dist/docs",
-  base      : "/docs/",
+  src : "./docs",
+  dest: "./dist/docs",
+  //base      : "/",
   typescript: true,
-  //mdPlugins  : [],
+  //mdPlugins : [],
   //hastPlugins: [],
-  //plugins: [myCoolPlugin()],
+  plugins: [
+    css({
+      preprocessor: "sass",
+      cssmodules  : true,
+    }),
+  ],
 };
 
 /*
 mdPlugins: 
 
-    // TODO: configure the plugins
-    // "remark-abbr",
-    //"remark-autolink-headings",
-    // "remark-code-screenshot",
-    // "remark-emoji",
-    // "remark-emoji-to-gemoji",
-    // "remark-gemoji",
-    // "remark-github",
-    // "remark-graphviz",
 
 hastPlugins: 
-    // "rehype-prism"
 
 */
