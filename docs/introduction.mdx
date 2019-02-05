@@ -12,7 +12,7 @@ keywords: documentation, boilderplate, react
 
 This package is an opinionated set of libraries from JS ecosystem that tries to achieve Typescript compatibility with React development while retaining all functionality of standard JS tools like ESlint, Babel and Webpack without relying on TypeScript specific tooling.
 
-It works... mostly... I think...
+It works... mostly... I hope... (It is **ALPHA** version at the moment and things can change without notice).
 
 All configuration files are located in main directory of this package. Please refer to that location whenever a configuration file is mentioned.
 
@@ -27,6 +27,7 @@ This package integrates:
 ### Future plans
 
 - MaterialUI.
+- Possibly replace [DOCZ](https://www.docz.site) with [docsify](https://docsify.js.org/#/?id=docsify) or [Docusaurus](https://docusaurus.io) [Docusaurus GitHub](https://github.com/facebook/Docusaurus) - only major downpoint is loosing MDX support but docsify/docusaurus documentation is far superior (ironic isn't it?). Docusaurus also offers versioning.
 
 ## Static Type Checking Tools
 
@@ -76,6 +77,9 @@ Running Cypress tests and debugging them should be easier as it uses `nodemon` t
 
 **React Testing Library**
 : used to test react components without implementation details.
+
+**Cypress testing library**
+: used for cleaner tests ex. when selecting items by text.
 
 ## Building && Bundling
 
