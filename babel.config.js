@@ -2,7 +2,7 @@ const isProd = String(process.env.NODE_ENV) === "production";
 const isTest = String(process.env.NODE_ENV) === "test";
 
 /*
-the `bp-` (3rd argument of presets and plugins configuration) prefix for plugins and presets is due t DOCZ using the same preset in it's configuration and Babel is complaining when running yarn docz:dev about `Error: Duplicate plugin/preset detected.`.
+the `sp-` (3rd argument of presets and plugins configuration) prefix for plugins and presets is due t DOCZ using the same preset in it's configuration and Babel is complaining when running yarn docz:dev about `Error: Duplicate plugin/preset detected.`.
 */
 
 module.exports = {
@@ -14,26 +14,66 @@ module.exports = {
         debug      : false,
         useBuiltIns: "usage",
       },
-      "bp-env",
+      "sp-env",
     ],
-    ["@babel/preset-react", {}, "bp-preset-react"],
-    ["@babel/preset-typescript", {}, "bp-preset-typescript"],
+    ["@babel/preset-react", {}, "sp-preset-react"],
+    ["@emotion/babel-preset-css-prop", {}, "sp-emotion-css-prop"],
+    ["@babel/preset-typescript", {}, "sp-preset-typescript"],
   ],
-  plugins: [
-    [
-      "emotion",
-      {
-        // sourceMap is on by default but source maps are dead code eliminated in production
-        sourceMap          : true,
-        autoLabel          : !isProd,
-        labelFormat        : "[local]",
-        cssPropOptimization: true,
-      },
-      "bp-emotion",
-    ],
-    ["syntax-trailing-function-commas", {}, "bp-trailing-commas"],
-    ["react-hot-loader/babel", {}, "bp-rhl"],
-    ["babel-plugin-dynamic-import-node", {}, "bp-din"],
-  ],
+
+  env: {
+    production: {
+      plugins: [
+        [
+          "emotion",
+          {
+            // sourceMap is on by default but source maps are dead code eliminated in production
+            sourceMap          : false,
+            autoLabel          : !isProd,
+            labelFormat        : "[local]",
+            cssPropOptimization: true,
+          },
+          "sp-emotion",
+        ],
+        ["syntax-trailing-function-commas", {}, "sp-trailing-commas"],
+      ],
+    },
+    development: {
+      plugins: [
+        [
+          "emotion",
+          {
+            // sourceMap is on by default but source maps are dead code eliminated in production
+            sourceMap          : true,
+            autoLabel          : !isProd,
+            labelFormat        : "[local]",
+            cssPropOptimization: true,
+          },
+          "sp-emotion",
+        ],
+        ["syntax-trailing-function-commas", {}, "sp-trailing-commas"],
+        ["react-hot-loader/babel", {}, "sp-rhl"],
+      ],
+    },
+    test: {
+      plugins: [
+        [
+          "emotion",
+          {
+            // sourceMap is on by default but source maps are dead code eliminated in production
+            sourceMap          : true,
+            autoLabel          : !isProd,
+            labelFormat        : "[local]",
+            cssPropOptimization: true,
+          },
+          "sp-emotion",
+        ],
+        ["syntax-trailing-function-commas", {}, "sp-trailing-commas"],
+        ["react-hot-loader/babel", {}, "sp-rhl"],
+        ["babel-plugin-dynamic-import-node", {}, "sp-din"],
+      ],
+    },
+  },
+
   exclude: ["node_modules"],
 };
