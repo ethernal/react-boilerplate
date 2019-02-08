@@ -22,5 +22,6 @@ module.exports = {
     "jest-watch-typeahead/filename",
     "jest-watch-typeahead/testname",
     "jest-watch-select-projects",
+    "jest-watch-suspend",
   ],
 };
