@@ -61,13 +61,11 @@ Typescript used only for type checking, React development with Jest and Cypress 
 ## :wrench: Must be done before tagging 1.0
 
 - Cleanup regexp rules for consistency.
+- Check ESLint rules.
+- Check Prettier rules.
+- Add Jest Prettier runner.
 - Add comments to options so it is clear why they must be setup as they are.
-- Refactor Jest configuration (move common settings to jest.common.conf.js and reuse it).
 - Create documentation for the setup.
-- Webpack - uglify.js for production.
-- Cleanup packages:
-  - concurently vs npm-run-all
-  - nodemon vs watch
 
 ## :money_with_wings: TODO
 

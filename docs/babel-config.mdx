@@ -1,0 +1,21 @@
+---
+route: /configuration/babel
+menu: Configuration
+name: BabelJS Configuration Overview
+
+author: Sebastian Pieczyński
+date: 2019-02-07
+keywords: babel, babeljs, configuration
+---
+
+Babel configuration is split into environments as described here: https://babeljs.io/docs/en/options#env
+
+Babel configuration uses names for plugins and presets to allow more than 1 instance of the plugin to be loaded. This is due to DOCZ config being affected I think by `babel.config.js` or is a bug in DOCZ.
+See last paragraph at: https://babeljs.io/docs/en/options#plugin-preset-merging
+
+```javascript
+plugins: [
+  ["./plug", { one: true }, "first-instance-name"],
+  ["./plug", { two: true }, "second-instance-name"],
+];
+```
