@@ -12,10 +12,12 @@ module.exports = {
     plugins       : ["typescript"],
     excludePlugins: ["bigInt"],
   },
-  rules: {
-    "no-console"             : "warn",
-    "no-unexpected-multiline": "error",
-    "comma-dangle"           : ["error", "always-multiline"],
+  plugins: ["react-hooks"],
+  rules  : {
+    "no-console"                : "warn",
+    "no-unexpected-multiline"   : "error",
+    "comma-dangle"              : ["error", "always-multiline"],
+    "react-hooks/rules-of-hooks": "error",
   },
   overrides: [
     {
