@@ -7,3 +7,4 @@ coverage
 .vscode
 **/css/*.d.ts
 .docz
+src/ignore-src

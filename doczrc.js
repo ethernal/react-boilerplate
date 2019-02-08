@@ -23,11 +23,3 @@ export default {
     }),
   ],
 };
-
-/*
-mdPlugins: 
-
-
-hastPlugins: 
-
-*/

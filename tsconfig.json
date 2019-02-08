@@ -25,5 +25,11 @@
   },
 
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts", "dist", "coverage"]
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "dist",
+    "coverage",
+    "src/ignore-src"
+  ]
 }
